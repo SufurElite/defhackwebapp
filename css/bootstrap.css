@@ -143,7 +143,6 @@ input::-moz-focus-inner {
 input {
   line-height: normal;
 }
-
 input[type="checkbox"],
 input[type="radio"] {
   -webkit-box-sizing: border-box;
@@ -309,14 +308,6 @@ th {
 }
 .glyphicon-search:before {
   content: "\e003";
-}
-.Wayestcoolest-thing {
-border: 1px solid #ccc;
-   font-size: 16px;
-   height: 34px;
-   width: 268px;
-}
-}    
 }
 .glyphicon-heart:before {
   content: "\e005";
@@ -1309,9 +1300,6 @@ p {
   .lead {
     font-size: 21px;
   }
-}
-.row {
-margin: auto;
 }
 small,
 .small {
@@ -6770,3 +6758,6 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.classbar {
+}

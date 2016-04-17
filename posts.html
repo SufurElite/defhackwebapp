@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <script src="jquery.js"></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+</head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+<script>
+$(document).ready(function () {
+			  $(".navbar-toggle").on("click", function () {
+				    $(this).toggleClass("active");
+			  });
+		});
+    </script>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-static-top custom-navbar" role="navigation">
+  <div class="container">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="navbar-header">
+      <a class="navbar-brand" rel="home" href="#" title="Help">
+       <img src="http://www.myoops.org/twocw/mit/NR/rdonlyres/Global/0/0C767171-50C6-4595-AFE0-241832AFFBD3/0/chp_pen_pad.jpg" width="25">
+      </a>
+    </div>
+    <!-- Non-collapsing right-side icons -->
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="#" class="fa fa-cog"></a>
+      </li>
+      <li>
+        <a href="#" class="fa fa-home"></a>
+      </li>
+    </ul>
+    <!-- the collapsing menu -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="feed.html"><span class="glyphicon glyphicon-list-alt"></span> Feed</a>
+                    </li>
+                    <li>
+                        <a href="upload.html"><span class="glyphicon glyphicon-upload"></span> Upload</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+  <!--/.container -->
+</nav>
+<div class="row">
+ <div class="col-md-6">
+<form>
+<div class="form-group">
+<label for="title"> Title: <input type="text" id='title' placeholder='John Doe'> </label>
+</div>
+<div class="form-group">
+<label for="subject">Subject:<input type="text" id='subject' placeholder='I Need Help!'> </label>
+</div>
+<div class="form-group">
+<label for="Deadline">Deadline:<input type="text" id='deadline' placeholder='I Need Help!'> </label>
+</div>
+<div class="form-group">
+<label for="Paper">Paper:<input type="text" id='paper' placeholder='I Need Help!'> </label>
+</div>
+<p> <input id='submit' class="btn btn-default" type="submit" value= "Submit Your Message"> </p>
+</form>
+</div>
+<div class="col-md-6">
+<div id="content"></div>
+</div>
+</div>
+<script>
+var forum=new Firebase ("https://peer-check-posts.firebaseio.com");
+document.getElementById("submit").onclick=function(){
+    var Title=$("#title").val();
+    var Subject=$("#subject").val();
+	var Deadline=$("#deadline").val();
+	var Paper=$("#paper").val();
+    console.log('LOL');
+    forum.push({title:Title,subject:Subject,deadline:Deadline,Paper:paper});
+    $("#title").val("");
+	$("#subject").val("");
+	$("#deadline").val("");
+	$("#paper").val("");
+    return false;
+};
+var messages=[]
+forum.on("child_added", function (snapshot) {
+    var value=snapshot.val()
+    var count=20
+    messages.push(value)
+    $("#content").html("")
+    var start=0
+    if(messages.length > count){
+        start=messages.length-count
+    }
+    for(var i=start;i <messages.length;i++){
+            $("#content").prepend("<p>"+messages[i].title+": "+messages[i].subject+ " " + messages[i].deadline+ " " +messages[i].paper+"</p>")
+        }
+    //$("#content").prepend("<p>"+value.name+": "+value.message+"</p>")
+})
+</script>
+</html>
