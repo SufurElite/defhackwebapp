@@ -46,16 +46,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="feed.html">Peer Check</a>
+                <a class="navbar-brand" href="index.html">Peer Check</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="feed.html"><span class="glyphicon glyphicon-list-alt"></span> Feed</a>
+                        <a href="#"><span class="glyphicon glyphicon-list-alt"></span> Feed</a>
                     </li>
                     <li>
-                        <a href="upload.html"><span class="glyphicon glyphicon-upload"></span> Upload</a>
+                        <a href="#"><span class="glyphicon glyphicon-upload"></span> Upload</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -73,41 +73,31 @@
     <div class="container">
 
         <!-- Jumbotron Header -->
-        <header class="jumbotron hero-spacer">
-            <div class="row">
-                <div class="col-md-12 text-center">
-            <h1>Upload your assignment:</h1>
-                <br> 
-                 <form> <p> Title: <input type="text" name="Title" value="<input title>"> </p>
-            <br>
-           <p>     Subject: 
-    <select>
+        <header class="jumbotron hero-spacer text-center">
+           <form> <h2>Registration</h2>
+            <h3 align="left"> First Name:</h3> <p> <input type="text" name="fname" placeholder="First Name">
+<h3 align="left">  Last Name:</h3> <p style="color:gray"> <input type="text" name="lname" placeholder="Last Name">
+    <h3 align="left">  School:</h3> <p> 
+    <select name="school">
     <option></option>
-    <option>Latin</option>
-    <option>Greek</option>
-    <option>English</option>
-    <option>History</option>
-    <option>Spanish</option>
-    <option>Science</option>
-               </select>
-        <br>
-        </p>
-        <br> 
-<form><p> Deadline: </p>
-    <br> 
-    <P><a class="btn btn-primary btn-larg">Jay's magic button here!</a></P>
-    <p><a class="btn btn-primary btn-large">Submit</a></p>
-    </div>
-    </div>
+    <option value="stech">Staten Island Tech</option>
+    <option value="btech">Brooklyn Tech</option>
+    <option value="fordham">Fordham Preparatory</option>
+    </select>
+    <br>
+    </p> </p> 
+            <h3 align="left"> Email:</h3> <p> <input type="text" name="email" placeholder="Input Email"> </p> 
+        <h3 align="left"> Password:</h3> <p> <input type="text" name="pass1" placeholder="Password"> </p> 
+     <p> <input type="text" name="pass2" placeholder="Retype Password"> </p>
+            </form>
+        <p><a class="btn btn-primary btn-large">Create Account</a></p>
     </header> 
         <hr>
-
-       
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright pending</p>
+                    
                 </div>
             </div>
         </footer>
